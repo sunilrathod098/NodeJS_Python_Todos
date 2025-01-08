@@ -5,7 +5,7 @@ import Todo from '../model/todo.model.js'
 const router = express.Router();
 
 router.post('/add', async (req, res) => {
-    const {} = req.body;
+    const {title, description} = req.body;
 })
 
 

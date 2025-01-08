@@ -1,0 +1,21 @@
+{
+  "name": "nodejs_python_todos",
+  "version": "1.0.0",
+  "description": "## Overview This project is a full-stack application that combines a Node.js backend with a Python component. It includes user authentication and a to-do list feature.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3"
+  }
+}

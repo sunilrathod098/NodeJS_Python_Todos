@@ -4,29 +4,28 @@
 This project is a full-stack application combining a Node.js backend and a Python microservice. It includes user authentication, password hashing, and a to-do list management feature. The project showcases communication between Node.js and Python services using APIs.
 
 ## Project Structure
-```bash
 project/
-├── backend/
-│ ├── server.js
-│ ├── routes/
-│ │ ├── auth.js
-│ │ ├── todo.js
-│ ├── models/
-│ │ ├── user.js
-│ │ ├── todo.js
-│ ├── controllers/
-│ │ ├── user.controller.js
-│ │ ├── todo.controller.js
-│ ├── config/
-│ ├── db.config.js
-├── python/
-│ ├── password_handler.py
-│ ├── app.py
-├── public/
-│ ├── register.html
-│ ├── login.html
-│ ├── todos.html
-├── package.json
+- ├── backend/
+- │ ├── server.js
+- │ ├── routes/
+- │ │ ├── auth.js
+- │ │ ├── todo.js
+- │ ├── models/
+- │ │ ├── user.js
+- │ │ ├── todo.js
+- │ ├── controllers/
+- │ │ ├── user.controller.js
+- │ │ ├── todo.controller.js
+- │ ├── config/
+- │ ├── db.config.js
+- ├── python/
+- │ ├── password_handler.py
+- │ ├── app.py
+- ├── public/
+- │ ├── register.html
+- │ ├── login.html
+- │ ├── todos.html
+- ├── package.json
 
 
 ### Backend (Node.js)

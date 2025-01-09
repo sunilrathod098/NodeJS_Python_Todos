@@ -1,6 +1,6 @@
-import express from 'express';
 import axios from 'axios';
-import User from '../model/user.model.js'
+import express from 'express';
+import User from '../model/user.model.js';
 
 const router = express.Router();
 
@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
     const {username, email, password} = req.body;
     try {
+        //here we send the password to python Flask API for hashing the password in {app.py}
         const response = await axios.post('http://127.0.0.1:5000/hash', {password});
         const hashedPassword = response.data;
         const user = new User({
@@ -19,7 +20,10 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'Invalid user data' });
         }
         await user.save();
-        res.status(201).send('User registered successfully')
+        res.status(201).send({
+            message: 'User registered successfully',
+            data: user
+        })
     } catch (error) {
         res.status(500).send(message.error || 'User not found')
     }
@@ -34,13 +38,17 @@ router.post('/login', async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'Invalid user data' });
         }
-
+        //here we verify the password using python flask api {app.py}
         const response = await axios.post('http://127.0.0.1:5000/verify',{
             password: user.password,
             hashedPassword: user.password
         });
         if (response.data.valid) {
-            res.status(200).send('Login User successful')
+            res.status(200).send({
+                message: 'User logged in successfully',
+                userData: user,
+                data: response
+            })
         } else {
             res.status(401).send('Invalid Credentials')
         }

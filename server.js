@@ -23,7 +23,7 @@ import todoRoutes from './Backend/route/todo.route.js';
 import userRoutes from './Backend/route/user.route.js';
 
 app.use('/api/auth', userRoutes);
-app.use('/api/task', todoRoutes);
+app.use('/api/todo', todoRoutes);
 
 //server listen
 const port = 3000

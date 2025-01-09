@@ -6,24 +6,32 @@ const router = express.Router();
 //CURD operation
 
 //createTodo
-router.post('/add', async (req, res) => {
-    const {userId, title} = req.body;
+router.post('/', async (req, res) => {
+    const {title, description} = req.body;
     try {
-        const todo = new Todo({userId, title});
-        if (!todo) {
-            res.status(401).send('Todo are not found')
-        }
-        await todo.save('Todos are created successfully');
+        const todo = new Todo(
+            {
+                title,
+                description
+            });
+            if (!todo) {
+                res.status(401).send('Todo are not found')
+            }
+            await todo.save();
+            res.status(201).send({
+                message: 'Todos are created successfully',
+                data: todo
+            })
     } catch (error) {
-        res.status(500).send(message.error)
+        res.status(500).send(message.error || 'Server Error')
     }
 });
 
 //getTodo
-router.get('/:userId', async (req, res) => {
-    const {userId} = req.params;
+router.get('/:todoId', async (req, res) => {
+    const {todoId} = req.params;
     try {
-        const todo = await Todo.find(userId);
+        const todo = await Todo.find(todoId);
         if (!todo) {
             res.status(401).send('Todo are not found')
             }
@@ -38,17 +46,24 @@ router.get('/:userId', async (req, res) => {
 
 
 //updateTodo
-router.put('/userId', async (req, res) => {
-    const {userId, title} = req.body;
+router.put('/:userId', async (req, res) => {
+    const {title, description} = req.body;
+    const {userId} = req.params;
     try {
-        const todo = await Todo.findByIdAndUpdate(userId, {title}, {new: true});
-        if (!todo) {
-            res.status(401).send('Todo are not found')
-            }
-            res.status(200).send({
-                message: 'Todo are updated successfully',
-                todo
-            })
+        const todo = await Todo.findByIdAndUpdate(userId,
+            {
+                title,
+                description
+            },{
+                new: true
+            });
+            if (!todo) {
+                res.status(401).send('Todo are not found')
+                }
+                res.status(200).send({
+                    message: 'Todo are updated successfully',
+                    data: todo
+                })
     } catch (error) {
         res.status(500).send(error.message )
     }
@@ -56,16 +71,16 @@ router.put('/userId', async (req, res) => {
 
 
 //deleteTodo
-router.delete('/:userId', async (req, res) => {
-    const {userId} = req.params;
+router.delete('/:todoId', async (req, res) => {
+    const {todoId} = req.params;
     try {
-        const todo = awaitTodo.findByIdAndDelete(userId);
+        const todo = await Todo.findByIdAndDelete(todoId);
         if (!todo) {
-            res.status(401).send('Todo are not found')
+            return res.status(404).send('Todo are not found')
             }
             res.status(200).send({
                 message: 'Todo are deleted successfully',
-                todo
+                data: todo
                 })
     } catch (error) {
         res.status(500).send(error.message)

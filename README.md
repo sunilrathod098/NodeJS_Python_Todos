@@ -4,6 +4,7 @@
 This project is a full-stack application combining a Node.js backend and a Python microservice. It includes user authentication, password hashing, and a to-do list management feature. The project showcases communication between Node.js and Python services using APIs.
 
 ## Project Structure
+```bash
 project/
 ├── backend/
 │ ├── server.js
@@ -33,12 +34,15 @@ project/
 - **`routes/`**: Defines API endpoints.
   - **`auth.js`**: Manages user authentication routes.
   - **`todo.js`**: Manages to-do list-related routes.
+
 - **`models/`**: Contains database schema definitions.
   - **`user.js`**: Schema for user data.
   - **`todo.js`**: Schema for to-do items.
+
 - **`controllers/`**: Contains logic for handling API requests.
   - **`user.controller.js`**: Manages user operations (e.g., registration, login).
   - **`todo.controller.js`**: Handles CRUD operations for to-dos.
+  
 - **`config/`**: Stores configuration files.
   - **`db.config.js`**: MongoDB connection configuration.
 
@@ -130,4 +134,4 @@ Start the Python Flask application:
 ## License
 - This project is licensed under the MIT License - see the LICENSE file for details.
 
-- `This updated README provides more structure, additional details about the project's features, and better instructions for setup and usage. Let me know if further tweaks are needed!`
+- ```bash This updated README provides more structure, additional details about the project's features, and better instructions for setup and usage. Let me know if further tweaks are needed!

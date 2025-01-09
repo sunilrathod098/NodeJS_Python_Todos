@@ -88,8 +88,7 @@ Ensure the following are installed:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sunilrathod098/signature_verification.git
-
+   git clone https://github.com/sunilrathod098/NodeJS_Python_Todos.git
 
 Navigate to the backend directory:
 `cd project/backend`
@@ -133,4 +132,5 @@ Start the Python Flask application:
 ## License
 - This project is licensed under the MIT License - see the LICENSE file for details.
 
-- ```bash This updated README provides more structure, additional details about the project's features, and better instructions for setup and usage. Let me know if further tweaks are needed!
+- ```bash 
+    This updated README provides more structure, additional details about the project's features, and better instructions for setup and usage. Let me know if further tweaks are needed!
